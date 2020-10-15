@@ -1,0 +1,35 @@
+index:
+  path: /
+  controller: App\Controller\TodoController::about
+  methods: GET
+
+
+# Todo crud
+
+todo_index:
+  path: /todo
+  controller: App\Controller\TodoController::index
+  methods: GET|POST
+
+todo_show:
+  path: /todo/{id}
+  controller: App\Controller\TodoController::show
+  methods: GET
+  requirements:
+    id: '\d+'
+
+todo_delete:
+  path: /todo/{id}
+  controller: App\Controller\TodoController::delete
+  methods: POST
+  requirements:
+    id: '\d+'
+
+
+status_change:
+  path: /status/{id}/{status}
+  controller: App\Controller\TodoController::setStatus
+  methods: GET
+  requirements:
+    id: '\d+'
+    status: done|undone

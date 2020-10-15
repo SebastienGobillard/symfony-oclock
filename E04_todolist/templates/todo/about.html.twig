@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Todo list{% endblock %}
+
+{% block menuHome %}active{% endblock %}
+
+{% block body %}
+    <h2>À propos</h2>
+
+    <p>Bienvenue sur todo app, votre nouveau gestionnaire de tâches !</p>
+    <p>Vous pouvez <a href="{{ path('todo_index') }}">afficher votre liste des tâches</a> ou ajouter tout de suite une nouvelle tâche :</p>
+
+    {{ include('todo/_form_add.html.twig') }}
+{% endblock %}

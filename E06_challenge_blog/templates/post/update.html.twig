@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Edition -  {{ post.title }}
+{% endblock %}
+
+{% block body %}
+    <h2>Edition - {{ post.title }}</h2>
+    <form action="{{ path('post_update', {'id': post.id }) }}" method="post">
+        <div class="form-group">
+            <label for="title">Titre</label>
+            <input type="text" name="title" value="{{ post.title }}" class="form-control">
+        </div>
+        <div class="form-group">
+            <label for="nb-likes">Mentions j'aimes</label>
+            <input type="number" name="nb-likes" value="{{ post.nbLikes }}" class="form-control" />
+        </div>
+        <div class="form-group">
+            <label for="body">Texte</label>
+            <textarea name="body" id="body" cols="30" rows="10" class="form-control">{{ post.body }}</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Sauvegarder</button>
+    </form>
+{% endblock %}
+
+

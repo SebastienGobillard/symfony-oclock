@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block body %}
+    <article>
+        <h2>{{ post.title }}</h2>
+        <p>Créé le {{ post.createdAt | date("m/d/Y à H:i") }}.<br>
+        {{ post.nbLikes }} j'aime(s).</p>
+        <br>
+        {{ post.body | raw }}
+        <a href="{{ path('post.list') }}">> Retour à l'accueil</a>
+
+        <br><br>
+
+        <form action="{{ path('post_update', {'id': post.id}) }}" class="d-inline-block">
+            <button type="submit" class="btn btn-primary">Modifier</button>
+        </form>
+        <form action="{{ path('post_delete', {'id': post.id}) }}" method="post" class="d-inline-block">
+            <button type="submit" class="btn btn-outline-danger">Supprimer</button>
+        </form>
+    </article>
+{% endblock %}
+

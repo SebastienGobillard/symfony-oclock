@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BirdController!{% endblock %}
+
+{% block body %}
+<div class="container">
+    <h1>Browse all birds</h1>
+    <table class="table table-stripped mt-4">
+        <thead>
+        <tr>
+            <th>Name</th>
+            <th>Width</th>
+            <th>Scale</th>
+            <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for bird in birds %}
+            <tr>
+                <td>{{ bird.name }}</td>
+                <td>{{ bird.height }}</td>
+                <td>{{ bird.scale }}</td>
+                <td><a href="{{ path('bird_detail', { 'id': bird.id }) }}">
+                    > Details
+                </a></td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    {% if lastSeenBird %}
+        <div class="alert alert-dark mt-4">
+            Dernier oiseau vu : <a href="{{ path('bird_detail', {id: lastSeenBird.id}) }}">{{ lastSeenBird.name }}</a>
+        </div>
+    {% endif %}
+</div>
+{% endblock %}

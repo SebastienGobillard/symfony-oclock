@@ -1,0 +1,5 @@
+{{ form_start(form, { 'attr': { 'class': 'form-inline' }}) }}
+    {{ form_row(form.task, {'attr': {'placeholder': 'Ex: apprendre symfony' }}) }}
+    {{ form_widget(form) }}
+    <button type="submit" class="btn btn-primary ml-1">Ajouter</button>
+{{ form_end(form) }}

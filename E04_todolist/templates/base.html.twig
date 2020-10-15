@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="{{ asset('app.css') }}">
+    {% block stylesheets %}{% endblock %}
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>Todo app</h1>
+        <ul class="nav nav-tabs mb-2 mt-4">
+            <li class="nav-item">
+                <a class="nav-link {%  block menuHome%}{% endblock %}" href="{{ path('index') }}">À propos</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link {% block menuTodos %}{% endblock %}" href="{{ path('todo_index') }}">Todos</a>
+            </li>
+        </ul>
+    </header>
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+
+    <footer class="mt-4">
+        <hr>
+        <blockquote class="blockquote text-center">
+            <p class="mb-0">Todo app written in Symfony 4.3</p>
+            <footer class="blockquote-footer">
+                By <a href="https://github.com/doliG">@doliG</a>, with the help of the course of
+                <cite title="Source Title"><a href="https://oclock.io">@Olcock.io</a></cite>
+            </footer>
+        </blockquote>
+    </footer>
+</div>
+{% block javascripts %}{% endblock %}
+</body>
+</html>

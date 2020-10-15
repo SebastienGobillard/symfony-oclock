@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Todo details{% endblock %}
+
+{% block menuTodos %}active{% endblock %}
+
+{% block body %}
+
+    <h2>Détails d'une tâche</h2>
+    <ul>
+        <li>Nom: {{ task.task }}</li>
+        <li>Créé le : {{ task.created_at }}</li>
+        <li>Status: {{ task.status }}</li>
+    </ul>
+
+    <a href="{{ path('todo_index') }}">> Retour à la liste</a>
+{% endblock body %}

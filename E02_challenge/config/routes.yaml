@@ -1,0 +1,24 @@
+# Templates
+bird_index:
+    path: /bird
+    controller: App\Controller\BirdController::index
+bird_detail:
+    path: /bird/{id}
+    controller: App\Controller\BirdController::detail
+    requirements:
+        id: '\d+'
+
+bird_pdf:
+    path: /pdf/bird
+    controller: App\Controller\BirdController::pdf
+
+# API
+api_bird_index:
+    path: /api/bird
+    controller: App\Controller\ApiController::index
+
+api_bird_details:
+    path: /api/bird/{id}
+    controller: App\Controller\ApiController::detail
+    requirements:
+        id: '\d+'

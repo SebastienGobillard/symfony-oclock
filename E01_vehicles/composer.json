@@ -1,0 +1,17 @@
+{
+    "name": "guillaumelodi/vehicles",
+    "authors": [
+        {
+            "name": "Guillaume Lodi",
+            "email": "guillaume.lodi@pm.me"
+        }
+    ],
+    "require": {
+        "symfony/var-dumper": "^4.3"
+    },
+    "autoload": {
+        "psr-4": {
+            "VehiclesApp\\": "app/"
+        }
+    }
+}

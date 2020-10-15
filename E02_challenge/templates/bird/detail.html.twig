@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <h1>Hello there 👋</h1>
+        <p>I'm a <b>{{ bird.name }}</b></p>
+        <p>I'm {{ bird.height }}cm tall and {{ bird.scale }}cm scale.</p>
+        <a href="{{ path('bird_index') }}">> Go back</a>
+    </div>
+{% endblock %}
+
+{% block title %}
+    {{ bird.name }} - details
+{% endblock %}
+

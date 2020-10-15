@@ -1,0 +1,34 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Todo list{% endblock %}
+
+{% block menuTodos %}active{% endblock %}
+
+{% block body %}
+    <h2 class="mt-4">Liste de tâches</h2>
+
+    {% include 'todo/_flash.html.twig' %}
+
+    <ul class="list-group">
+        {% for id, task in todos %}
+            <li class="list-group-item">
+                {% if task.status == 'done' %}
+                    <a href="{{ path('status_change', {'id': id, 'status': 'undone'}) }}">✓</a>
+                {% elseif task.status == 'undone' %}
+                    <a href="{{ path('status_change', {'id': id, 'status': 'done'}) }}">💩</a>
+                {% endif %}
+                <a class="{{ task.status }}" href="{{ path('todo_show', {id: id}) }}">
+                    {{ task.task }}
+                </a>
+                <form action="{{ path('todo_delete', {id: id}) }}" method="POST" style="float: right;">
+                    <button type="submit" class="btn btn-outline-danger">Supprimer</button>
+                </form>
+            </li>
+        {% endfor %}
+    </ul>
+
+    <br>
+
+    {% include 'todo/_form_add.html.twig' %}
+
+{% endblock %}

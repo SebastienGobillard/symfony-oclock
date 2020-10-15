@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Details - {{ author.name }}
+{% endblock %}
+
+{% block body %}
+    <h1>Details</h1>
+    <ul>
+        <li><b>Id: </b>{{ author.id }}</li>
+        <li><b>Name: </b>{{ author.name }}</li>
+        <li><b>Créé le: </b>{{ author.createdAt | date('m/d/Y à H:m') }}</li>
+        <li><b>Nombre de posts: </b>{{ author.nbPosts }}</li>
+    </ul>
+
+    <h3>Articles</h3>
+    <ul>
+        {% for post in author.posts %}
+        <li>
+            <a href="{{ path('blog.show', {'id': post.id}) }}">{{ post.title }}</a>
+        </li>
+        {% endfor %}
+    </ul>
+    {{ dump(author) }}
+{% endblock %}

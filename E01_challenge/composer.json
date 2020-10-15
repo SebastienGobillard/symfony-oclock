@@ -1,0 +1,17 @@
+{
+    "name": "guillaumelodi/challenge",
+    "require": {
+        "setasign/fpdf": "^1.8"
+    },
+    "authors": [
+        {
+            "name": "Guillaume Lodi",
+            "email": "guillaume.lodi@pm.me"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "TextGenerator\\": "src/"
+        }
+    }
+}
